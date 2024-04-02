@@ -27,25 +27,23 @@ public class QWE {
         }
     }
 
-    public static void fillArray(int[] m, int filler)
-    {
+    public static void fillArray(int[] m, int filler) {
         for (int i = 0; i < m.length; i++) {
             m[i] = filler;
         }
     }
 
-    public static void readArray(int[] m)
-    {
+    public static void readArray(int[] m) {
         Scanner scanner = new Scanner(System.in);
         int value;
-        System.out.println("введите "+m.length+" элементов массива");
+        System.out.println("введите " + m.length + " элементов массива");
         for (int i = 0; i < m.length; i++) {
             value = scanner.nextInt();
             m[i] = value;
         }
     }
 
-    public static int[] inputArray(){
+    public static int[] inputArray() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("введите размер массива 2");
         int size = scanner.nextInt();
@@ -55,70 +53,81 @@ public class QWE {
     }
 
 
-public static int sumArray(int[] m) {
-    int sum = 0;
-    for (int i = 0; i < m.length; i++)
-        sum += m[i];
-    return sum;
-}
-
-
-public static int minElement(int[] m)
-{
-    int min = m[0];
-    for (int i = 1; i < m.length; i++) {
-        if (m[i] < min) {
-            min = m[i];
-        }
+    public static int sumArray(int[] m) {
+        int sum = 0;
+        for (int i = 0; i < m.length; i++)
+            sum += m[i];
+        return sum;
     }
-    return min;
-}
 
-public static int maxElementNumber(int[] m)
-{
-    int max = m[0];
-    int numMax = 0;
-    for (int i = 1; i < m.length; i++) {
-        if (m[i] > max) {
-            numMax = m[i];
+
+    public static int minElement(int[] m) {
+        int min = m[0];
+        for (int i = 1; i < m.length; i++) {
+            if (m[i] < min) {
+                min = m[i];
+            }
         }
+        return min;
     }
-    return numMax;
-}
 
-public static int swapMinMax(int[] m)
-{
-    int max = m[0], min = m[0], maxNumber = 0, minNumber = 0;
-    for (int i = 1; i < m.length; i++) {
-        if (m[i] > max) {
-            max = m[i];
-            maxNumber = i;
+    public static int maxElementNumber(int[] m) {
+        int max = m[0];
+        int numMax = 0;
+        for (int i = 1; i < m.length; i++) {
+            if (m[i] > max) {
+                numMax = m[i];
+            }
         }
-        if (m[i] < min) {
-            min = m[i];
-            minNumber = i;
-        }
+        return numMax;
     }
-    m[maxNumber] = min;
-    m[minNumber] = max;
 
-    return 0;
+    public static int swapMinMax(int[] m) {
+        int max = m[0], min = m[0], maxNumber = 0, minNumber = 0;
+        for (int i = 1; i < m.length; i++) {
+            if (m[i] > max) {
+                max = m[i];
+                maxNumber = i;
+            }
+            if (m[i] < min) {
+                min = m[i];
+                minNumber = i;
+            }
+        }
+        m[maxNumber] = min;
+        m[minNumber] = max;
+
+        return 0;
+    }
+
+    public static int searchNumberOfX(int x, int[] m) {
+        for (int i = 1; i < m.length; i++) {
+            if (m[i]==x)
+                return i;
+        }
+        return -1;
+    }
+
+    public static int searchNearestNumberByModule(int x, int[] m) {
+        int minNumber = x - m[0];
+        int j = 0;
+        for (int i = 1; i<= m.length; i--) {
+            if ((x - m[i] < minNumber))
+                minNumber = x;
+            j = i;
+        }
+        return j;
+    }
+
+    public static int backNumberOf(int[] m) {
+        for (int i = m.length - 1; i >= 0; i--) {
+            System.out.println(m[i] + "");
+        }
+        System.out.println("");
+    }
 }
 
-//public static int backNumberOf(int[] m){
-//int length = 0;
-//for (int element: m)
-//{
-//length++;
-//}
-//for (int i = length - 1; i >= 0; i--){
-//        System.out.
-//
-//println(m[i]);
-//
-//}
-//        }}
 
 
 
-}
+
